@@ -1,11 +1,10 @@
 import React from 'react'
-import MovieList from './components/MovieList'
+import PopularMovies from './components/popularMovies.js/PopularMovies'
 
 function App() {
   return (
     <div>
-      <h1>Popular Movies</h1>
-      <MovieList />
+      <PopularMovies />
     </div>
   )
 }
