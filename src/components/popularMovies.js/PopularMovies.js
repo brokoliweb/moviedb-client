@@ -6,7 +6,6 @@ import axios from 'axios'
 import styled from 'styled-components'
 
 import MovieCard from './MovieCard'
-import { TMDB_API_KEY } from '../../constants'
 
 const Wrapper = styled.div`
   display: flex;
@@ -48,7 +47,7 @@ const PopularMovies = () => {
           'https://api.themoviedb.org/3/movie/popular',
           {
             params: {
-              api_key: TMDB_API_KEY,
+              api_key: process.env.REACT_APP_TMDB_API_KEY,
               language: 'en-US',
               page: 1,
             },
