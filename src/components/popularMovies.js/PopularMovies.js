@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import gql from 'graphql-tag'
+import { useQuery } from '@apollo/client'
+
 import axios from 'axios'
 import styled from 'styled-components'
 
@@ -19,9 +22,24 @@ const CardContainer = styled.div`
   vertical-align: center;
 `
 
+const GET_USERS = gql`
+  {
+    allUser {
+      users {
+        id
+        name
+      }
+    }
+  }
+`
+
 const PopularMovies = () => {
   const [popularMovies, setPopularMovies] = useState(null)
   const [cardData, setCardData] = useState(null)
+
+  const { loading, error, data } = useQuery(GET_USERS)
+
+  console.log(`data:`, data)
 
   useEffect(() => {
     const fetchPopularMovies = async () => {
