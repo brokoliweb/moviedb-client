@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components';
-import Card from "../components/Card";
-import axios from 'axios';
-import { TMDB_API_KEY } from '../constants/index'
+import styled from 'styled-components'
+import Card from '../components/Card'
+import axios from 'axios'
 
 const Container = styled.div`
   display: flex;
@@ -10,49 +9,38 @@ const Container = styled.div`
   flex-wrap: wrap;
 `
 
-
-
-const Home = ( {type} ) => {
-
+const Home = ({ type }) => {
   const [movies, setMovies] = useState([])
-  
 
   useEffect(() => {
     const fetchMovies = async () => {
-      try{
+      try {
         const response = await axios.get(
           'https://api.themoviedb.org/3/movie/popular', //`https://api.themoviedb.org/3/movie/popular/${type}`
           {
             params: {
-              api_key: TMDB_API_KEY,
+              api_key: process.env.REACT_APP_TMDB_API_KEY,
               language: 'en-US',
-              page: 8
-              
-            }
+              page: 8,
+            },
           }
-        ) 
-        setMovies(response.data.results);
-          }
-          catch(err){
-            console.log(err)
-          }      
-          
+        )
+        setMovies(response.data.results)
+      } catch (err) {
+        console.log(err)
+      }
     }
 
     fetchMovies()
   }, [type])
-   
+
   return (
     <Container>
-      {movies.map(movie => (
-        <Card 
-        key={movie.id} 
-        movie={movie} 
-        />
+      {movies.map((movie) => (
+        <Card key={movie.id} movie={movie} />
       ))}
-     
     </Container>
-  );
-};
+  )
+}
 
 export default Home
