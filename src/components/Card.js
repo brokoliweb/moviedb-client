@@ -12,7 +12,8 @@ const Container = styled.div`
 
 const Image = styled.img`
     width: 100%;
-    height: ${(props) =>props.type === "sm" ? "120px" : "70vh"};
+    height: 75vh;
+    // height: ${(props) =>props.type === "sm" ? "80px" : "202px"};
     
     background-color: #999;
     flex: 1;
@@ -23,7 +24,7 @@ const Details = styled.div`
    display: flex;
    margin-top: ${(props) => props.type !== "sm" && "16px"};
    gap: 12px;
-   flex: 1;
+   flex: 2;
 `
 
 const ChannelImage = styled.img`
@@ -52,17 +53,16 @@ color: ${({theme}) => theme.textSoft};
 `
 
 
-const Card = ({ type, movie, video}) => {
-  console.log(movie)
+const Card = ({ type, movie }) => {
   const movieImage = `https://image.tmdb.org/t/p/original${movie.poster_path}`
   return (
-    <Link to={`/video/${movie.id}`} type={type} style={{textDecoration:"none"}}>
+    <Link to="/video/test" style={{textDecoration:"none"}}>
       <Container type={type}>
           <Image 
            type={type}
            src={movieImage} />
           <Details type={type} >
-              <ChannelImage type={type} src={movieImage} />
+              <ChannelImage src={movieImage} />
               <Texts>
                 <Title>{movie.original_title} </Title>
                 <ChannelName> {movie.release_date} </ChannelName>

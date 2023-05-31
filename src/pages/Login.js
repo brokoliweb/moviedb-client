@@ -104,7 +104,7 @@ const Login = () => {
             <Input placeholder="username" onChange={e=>setName(e.target.value)} />
             <Input type="email" placeholder="Email" onChange={e=>setEmail(e.target.value)}/>
             <Input type="password" placeholder="Password" onChange={e=>setPassword(e.target.value)} />
-            <Button onClick={handleLogin}>Sign Up</Button>
+            <Button>Sign Up</Button>
 
 
         </Wrapper>

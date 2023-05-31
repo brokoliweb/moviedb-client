@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Card from '../components/Card'
 import axios from 'axios'
-import { Link, useParams } from "react-router-dom"
 
 const Container = styled.div`
   display: flex;
@@ -12,7 +11,6 @@ const Container = styled.div`
 
 const Home = ({ type }) => {
   const [movies, setMovies] = useState([])
-  const { id } = useParams ();
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -28,7 +26,6 @@ const Home = ({ type }) => {
           }
         )
         setMovies(response.data.results)
-        console.log(response.data.results);
       } catch (err) {
         console.log(err)
       }
@@ -40,16 +37,8 @@ const Home = ({ type }) => {
   return (
     <Container>
       {movies.map((movie) => (
-        <Card key={movie.id} movie={movie} >
-          <Link to={`/video/${movie.id}`}>{movie.name}</Link>
-          {movie.name}
-        </ Card>
-        
-        
+        <Card key={movie.id} movie={movie} />
       ))}
-     
-      
-
     </Container>
   )
 }
