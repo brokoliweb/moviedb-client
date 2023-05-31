@@ -9,6 +9,7 @@ import Video from "./pages/Video";
 import Login from "./pages/Login";
 
 
+
 const Container = styled.div`
 display: flex;
 `
@@ -42,8 +43,10 @@ function App() {
                 <Route path="trends" element={<Home type="trend"/>} />
                 <Route path="subcriptions" element={<Home type="sub"/>} />
                 <Route path="signin" element={<Login />} />
+
                 <Route path="video">
-                  <Route path=":id" element={<Video />} />
+                <Route path=":id" element= {<Video /> }/>
+                
                 </Route >
               </Route>
             </Routes>

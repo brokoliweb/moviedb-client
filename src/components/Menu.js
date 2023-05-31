@@ -53,7 +53,8 @@ cursor: pointer;
 padding: 7.5px 0;
 
 &:hover {
-     background-color: ${({theme}) => theme.soft} };
+     background-color: ${({theme}) => theme.soft} 
+    };
 `
 const Hr = styled.hr`
 margin: 15px 0;
@@ -95,11 +96,12 @@ const Menu = ({darkMode, setDarkMode}) => {
                 Movie Moment
             </Logo>
         </Link>
-
+        <Link to="/" style={{textDecoration:"none", color:"inherit"} }>
             <Item>
                 <HomeIcon />
                 Home
             </Item>  
+        </Link>    
             <Link to="trends" style={{textDecoration:"none" , color: "inherit"}}>
             <Item> 
                 <ExploreOutlinedIcon />
